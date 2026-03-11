@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unit Converter</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:40px;">
+
+<h1>KM to Miles Converter</h1>
+
+<input id="km" placeholder="Kilometers"><br><br>
+
+<button onclick="calc()">Convert</button>
+
+<h2 id="result"></h2>
+
+<script>
+
+function calc(){
+
+let km=document.getElementById("km").value;
+
+let miles=km*0.621;
+
+document.getElementById("result").innerHTML=
+miles+" Miles";
+
+}
+
+</script>
+
+</body>
+</html>
