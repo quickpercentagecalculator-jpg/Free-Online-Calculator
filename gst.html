@@ -2,30 +2,52 @@
 <html>
 <head>
 <title>GST Calculator</title>
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:60px;
+}
+input, select, button{
+    padding:8px;
+    margin:8px;
+    font-size:16px;
+}
+</style>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body>
 
-<h1>GST Calculator</h1>
+<h2>GST Calculator</h2>
 
-<input id="amount" placeholder="Amount"><br><br>
-<input id="gst" placeholder="GST %"><br><br>
+<input type="number" id="amount" placeholder="Enter Amount">
 
-<button onclick="calc()">Calculate</button>
+<select id="gst">
+<option value="5">5%</option>
+<option value="12">12%</option>
+<option value="18">18%</option>
+<option value="28">28%</option>
+</select>
 
-<h2 id="result"></h2>
+<br>
+
+<button onclick="calculateGST()">Calculate</button>
+
+<h3 id="gstAmount"></h3>
+<h3 id="totalAmount"></h3>
 
 <script>
 
-function calc(){
+function calculateGST(){
 
-let amount=document.getElementById("amount").value;
-let gst=document.getElementById("gst").value;
+let amount = document.getElementById("amount").value;
+let gst = document.getElementById("gst").value;
 
-let total=amount+(amount*gst/100);
+let gstValue = (amount * gst) / 100;
+let total = Number(amount) + gstValue;
 
-document.getElementById("result").innerHTML=
-"Total Amount = "+total;
+document.getElementById("gstAmount").innerHTML = "GST Amount: ₹ " + gstValue;
+document.getElementById("totalAmount").innerHTML = "Total Price: ₹ " + total;
 
 }
 
