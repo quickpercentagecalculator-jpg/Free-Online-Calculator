@@ -1,76 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Percentage Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
 
-<style>
-
-body{
-font-family:Arial;
-text-align:center;
-background:#f4f4f4;
-padding:40px;
-}
-
-.box{
-background:white;
-padding:30px;
-border-radius:10px;
-width:300px;
-margin:auto;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-input{
-padding:10px;
-margin:10px;
-width:80%;
-}
-
-button{
-padding:10px 20px;
-background:#2c3e50;
-color:white;
-border:none;
-}
-
-</style>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Percentage Calculator</h1>
+    <h1>Percentage Calculator</h1>
 
-<div class="box">
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="value" placeholder="Enter Value"><br><br>
+        <input type="number" id="total" placeholder="Enter Total"><br><br>
 
-<input id="total" type="number" placeholder="Total Number">
+        <button onclick="calculatePercentage()">Calculate</button>
 
-<input id="percent" type="number" placeholder="Percentage">
+        <h3 id="result"></h3>
+    </div>
 
-<br>
+    <script>
+        function calculatePercentage() {
+            let value = document.getElementById("value").value;
+            let total = document.getElementById("total").value;
 
-<button onclick="calc()">Calculate</button>
+            let percentage = (value / total) * 100;
 
-<h3 id="result"></h3>
+            document.getElementById("result").innerHTML =
+                "Percentage: " + percentage.toFixed(2) + "%";
+        }
+    </script>
 
-</div>
+    <hr>
 
-<script>
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Percentage?</h2>
+    <p>
+        Percentage is a way of expressing a number as a fraction of 100. It is widely used in mathematics, finance, education, and everyday calculations to compare values easily.
+    </p>
 
-function calc(){
+    <h2>How to Calculate Percentage?</h2>
+    <p>
+        Percentage is calculated using the formula:
+    </p>
 
-let total=document.getElementById("total").value;
+    <p><b>Percentage = (Value ÷ Total Value) × 100</b></p>
 
-let percent=document.getElementById("percent").value;
+    <p>
+        For example, if you score 45 out of 50 marks, your percentage is (45 ÷ 50) × 100 = 90%.
+    </p>
 
-let answer=(percent/100)*total;
+    <h2>Where is Percentage Used?</h2>
+    <ul>
+        <li>Exam and academic results</li>
+        <li>Shopping discounts</li>
+        <li>Profit and loss calculations</li>
+        <li>Financial analysis</li>
+    </ul>
 
-document.getElementById("result").innerHTML=
-"Result = "+answer;
+    <h2>Why Use Percentage Calculator?</h2>
+    <ul>
+        <li>Fast and accurate results</li>
+        <li>No manual calculation required</li>
+        <li>Useful for students and professionals</li>
+    </ul>
 
-}
+    <h2>Conclusion</h2>
+    <p>
+        This percentage calculator helps you quickly find percentages for various calculations. It is simple, fast, and easy to use.
+    </p>
 
-</script>
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
