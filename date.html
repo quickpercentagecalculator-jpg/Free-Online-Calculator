@@ -1,35 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Date Difference Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Date Difference</h1>
+    <h1>Date Difference Calculator</h1>
 
-<input type="date" id="d1"><br><br>
-<input type="date" id="d2"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <label>Start Date:</label><br>
+        <input type="date" id="start"><br><br>
 
-<button onclick="calc()">Calculate</button>
+        <label>End Date:</label><br>
+        <input type="date" id="end"><br><br>
 
-<h2 id="result"></h2>
+        <button onclick="calculateDate()">Calculate</button>
 
-<script>
+        <h3 id="result"></h3>
+    </div>
 
-function calc(){
+    <script>
+        function calculateDate() {
+            let start = new Date(document.getElementById("start").value);
+            let end = new Date(document.getElementById("end").value);
 
-let d1=new Date(document.getElementById("d1").value);
-let d2=new Date(document.getElementById("d2").value);
+            let diff = end - start;
 
-let diff=(d2-d1)/(1000*60*60*24);
+            let days = diff / (1000 * 60 * 60 * 24);
 
-document.getElementById("result").innerHTML=
-diff+" Days";
+            document.getElementById("result").innerHTML =
+                "Difference: " + days + " days";
+        }
+    </script>
 
-}
+    <hr>
 
-</script>
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Date Calculator?</h2>
+    <p>
+        A date calculator is a tool used to find the difference between two dates. It helps you calculate the number of days between any two given dates quickly.
+    </p>
+
+    <h2>How Does Date Calculation Work?</h2>
+    <p>
+        The calculator takes two dates as input and calculates the time difference between them in days. It uses standard date calculations to provide accurate results.
+    </p>
+
+    <h2>Why Use Date Calculator?</h2>
+    <ul>
+        <li>Quickly calculate days between dates</li>
+        <li>Useful for planning events</li>
+        <li>Helpful for project timelines</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This date calculator is a simple and useful tool to find the difference between two dates. It is fast, accurate, and easy to use.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
