@@ -1,35 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Discount Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Discount Calculator</h1>
+    <h1>Discount Calculator</h1>
 
-<input id="price" placeholder="Original Price"><br><br>
-<input id="discount" placeholder="Discount %"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="price" placeholder="Original Price (₹)"><br><br>
+        <input type="number" id="discount" placeholder="Discount (%)"><br><br>
 
-<button onclick="calc()">Calculate</button>
+        <button onclick="calculateDiscount()">Calculate</button>
 
-<h2 id="result"></h2>
+        <h3 id="result"></h3>
+    </div>
 
-<script>
+    <script>
+        function calculateDiscount() {
+            let price = document.getElementById("price").value;
+            let discount = document.getElementById("discount").value;
 
-function calc(){
+            let discountAmount = (price * discount) / 100;
+            let finalPrice = price - discountAmount;
 
-let price=document.getElementById("price").value;
-let discount=document.getElementById("discount").value;
+            document.getElementById("result").innerHTML =
+                "Discount: ₹" + discountAmount.toFixed(2) +
+                "<br>Final Price: ₹" + finalPrice.toFixed(2);
+        }
+    </script>
 
-let final=price-(price*discount/100);
+    <hr>
 
-document.getElementById("result").innerHTML=
-"Final Price = "+final;
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Discount?</h2>
+    <p>
+        A discount is a reduction in the original price of a product or service. It is commonly used in sales and offers to attract customers and increase purchases.
+    </p>
 
-}
+    <h2>How to Calculate Discount?</h2>
+    <p>
+        Discount is calculated using the formula:
+    </p>
 
-</script>
+    <p><b>Discount = (Original Price × Discount %) ÷ 100</b></p>
+
+    <p>
+        Final Price = Original Price − Discount
+    </p>
+
+    <p>
+        For example, if a product costs ₹1000 and has a 20% discount, then the discount is ₹200 and the final price becomes ₹800.
+    </p>
+
+    <h2>Why Use Discount Calculator?</h2>
+    <ul>
+        <li>Quick and accurate calculation</li>
+        <li>Helps in shopping decisions</li>
+        <li>Saves time and effort</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This discount calculator helps you quickly find the discounted price of any product. It is simple, fast, and useful for everyday shopping.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
