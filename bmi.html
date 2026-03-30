@@ -1,35 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>BMI Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>BMI Calculator</h1>
+    <h1>BMI Calculator</h1>
 
-<input id="weight" placeholder="Weight (kg)"><br><br>
-<input id="height" placeholder="Height (m)"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="weight" placeholder="Enter weight (kg)"><br><br>
+        <input type="number" id="height" placeholder="Enter height (cm)"><br><br>
+        <button onclick="calculateBMI()">Calculate BMI</button>
 
-<button onclick="calc()">Calculate</button>
+        <h3 id="result"></h3>
+    </div>
 
-<h2 id="result"></h2>
+    <script>
+        function calculateBMI() {
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
 
-<script>
+            height = height / 100; // convert cm to meters
 
-function calc(){
+            let bmi = weight / (height * height);
 
-let w=document.getElementById("weight").value;
-let h=document.getElementById("height").value;
+            let category = "";
 
-let bmi=w/(h*h);
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi < 24.9) {
+                category = "Normal weight";
+            } else if (bmi < 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obese";
+            }
 
-document.getElementById("result").innerHTML=
-"BMI = "+bmi.toFixed(2);
+            document.getElementById("result").innerHTML =
+                "Your BMI: " + bmi.toFixed(2) + "<br>Category: " + category;
+        }
+    </script>
 
-}
+    <hr>
 
-</script>
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is BMI?</h2>
+    <p>
+        BMI (Body Mass Index) is a simple calculation used to measure whether a person has a healthy body weight based on their height and weight. It is widely used as a basic health indicator.
+    </p>
+
+    <h2>How to Calculate BMI?</h2>
+    <p>
+        BMI is calculated using the following formula:
+    </p>
+
+    <p><b>BMI = Weight (kg) ÷ Height² (m)</b></p>
+
+    <p>
+        For example, if a person weighs 70 kg and has a height of 1.75 meters, their BMI would be approximately 22.86.
+    </p>
+
+    <h2>BMI Categories</h2>
+    <ul>
+        <li>Underweight: BMI less than 18.5</li>
+        <li>Normal weight: BMI between 18.5 and 24.9</li>
+        <li>Overweight: BMI between 25 and 29.9</li>
+        <li>Obese: BMI 30 or more</li>
+    </ul>
+
+    <h2>Why Use BMI Calculator?</h2>
+    <ul>
+        <li>Quick and easy health check</li>
+        <li>No manual calculation needed</li>
+        <li>Helpful for tracking fitness</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This BMI calculator helps you quickly determine your body mass index and understand your health category. It is simple, fast, and useful for everyday use.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
