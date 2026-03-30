@@ -1,37 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Loan EMI Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Loan EMI Calculator</h1>
+    <h1>Loan EMI Calculator</h1>
 
-<input id="loan" placeholder="Loan Amount"><br><br>
-<input id="rate" placeholder="Interest Rate (%)"><br><br>
-<input id="months" placeholder="Loan Months"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="loan" placeholder="Loan Amount (₹)"><br><br>
+        <input type="number" id="rate" placeholder="Interest Rate (%)"><br><br>
+        <input type="number" id="time" placeholder="Time (years)"><br><br>
 
-<button onclick="calc()">Calculate</button>
+        <button onclick="calculateEMI()">Calculate EMI</button>
 
-<h2 id="result"></h2>
+        <h3 id="result"></h3>
+    </div>
 
-<script>
+    <script>
+        function calculateEMI() {
+            let P = document.getElementById("loan").value;
+            let R = document.getElementById("rate").value / 12 / 100;
+            let N = document.getElementById("time").value * 12;
 
-function calc(){
+            let EMI = (P * R * Math.pow(1 + R, N)) / (Math.pow(1 + R, N) - 1);
 
-let P=parseFloat(document.getElementById("loan").value);
-let R=parseFloat(document.getElementById("rate").value)/12/100;
-let N=parseFloat(document.getElementById("months").value);
+            document.getElementById("result").innerHTML =
+                "Monthly EMI: ₹" + EMI.toFixed(2);
+        }
+    </script>
 
-let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+    <hr>
 
-document.getElementById("result").innerHTML=
-"Monthly EMI = "+EMI.toFixed(2);
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is EMI?</h2>
+    <p>
+        EMI (Equated Monthly Installment) is the fixed amount paid by a borrower every month to repay a loan. It includes both principal and interest components.
+    </p>
 
-}
+    <h2>How is EMI Calculated?</h2>
+    <p>
+        EMI is calculated using a mathematical formula based on loan amount, interest rate, and time period.
+    </p>
 
-</script>
+    <p><b>EMI = [P × R × (1+R)^N] ÷ [(1+R)^N − 1]</b></p>
+
+    <p>
+        Where P is loan amount, R is monthly interest rate, and N is number of months.
+    </p>
+
+    <h2>Why Use EMI Calculator?</h2>
+    <ul>
+        <li>Plan your monthly budget</li>
+        <li>Understand loan repayment</li>
+        <li>Quick and accurate results</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This EMI calculator helps you quickly calculate your monthly loan payments. It is simple, fast, and useful for financial planning.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
