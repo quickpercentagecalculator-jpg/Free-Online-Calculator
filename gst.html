@@ -1,57 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>GST Calculator</title>
-<style>
-body{
-    font-family: Arial;
-    text-align:center;
-    margin-top:60px;
-}
-input, select, button{
-    padding:8px;
-    margin:8px;
-    font-size:16px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h2>GST Calculator</h2>
+    <h1>GST Calculator</h1>
 
-<input type="number" id="amount" placeholder="Enter Amount">
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="amount" placeholder="Enter Amount (₹)"><br><br>
+        <input type="number" id="gst" placeholder="Enter GST %"><br><br>
 
-<select id="gst">
-<option value="5">5%</option>
-<option value="12">12%</option>
-<option value="18">18%</option>
-<option value="28">28%</option>
-</select>
+        <button onclick="calculateGST()">Calculate</button>
 
-<br>
+        <h3 id="result"></h3>
+    </div>
 
-<button onclick="calculateGST()">Calculate</button>
+    <script>
+        function calculateGST() {
+            let amount = document.getElementById("amount").value;
+            let gst = document.getElementById("gst").value;
 
-<h3 id="gstAmount"></h3>
-<h3 id="totalAmount"></h3>
+            let gstAmount = (amount * gst) / 100;
+            let total = Number(amount) + gstAmount;
 
-<script>
+            document.getElementById("result").innerHTML =
+                "GST Amount: ₹" + gstAmount.toFixed(2) +
+                "<br>Total Price: ₹" + total.toFixed(2);
+        }
+    </script>
 
-function calculateGST(){
+    <hr>
 
-let amount = document.getElementById("amount").value;
-let gst = document.getElementById("gst").value;
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is GST?</h2>
+    <p>
+        GST (Goods and Services Tax) is an indirect tax applied on the supply of goods and services. It has replaced multiple taxes to simplify the taxation system and make it more transparent.
+    </p>
 
-let gstValue = (amount * gst) / 100;
-let total = Number(amount) + gstValue;
+    <h2>How to Calculate GST?</h2>
+    <p>
+        GST is calculated using a simple formula:
+    </p>
 
-document.getElementById("gstAmount").innerHTML = "GST Amount: ₹ " + gstValue;
-document.getElementById("totalAmount").innerHTML = "Total Price: ₹ " + total;
+    <p><b>GST = (Amount × GST Rate) ÷ 100</b></p>
 
-}
+    <p>
+        For example, if a product costs ₹1000 and the GST rate is 18%, then the GST amount is ₹180 and the total price becomes ₹1180.
+    </p>
 
-</script>
+    <h2>Why Use GST Calculator?</h2>
+    <ul>
+        <li>Quick and accurate calculation</li>
+        <li>No manual effort required</li>
+        <li>Useful for businesses and customers</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This GST calculator helps you easily calculate tax amounts and total price. It is simple, fast, and useful for everyday financial calculations.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
