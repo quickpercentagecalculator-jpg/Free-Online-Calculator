@@ -1,33 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Time Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Time Calculator</h1>
+    <h1>Time Calculator</h1>
 
-<input id="hours" placeholder="Hours"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="hours" placeholder="Hours"><br><br>
+        <input type="number" id="minutes" placeholder="Minutes"><br><br>
 
-<button onclick="calc()">Convert</button>
+        <button onclick="convertTime()">Convert</button>
 
-<h2 id="result"></h2>
+        <h3 id="result"></h3>
+    </div>
 
-<script>
+    <script>
+        function convertTime() {
+            let hours = document.getElementById("hours").value;
+            let minutes = document.getElementById("minutes").value;
 
-function calc(){
+            let totalMinutes = (hours * 60) + Number(minutes);
 
-let h=document.getElementById("hours").value;
+            let hrs = Math.floor(totalMinutes / 60);
+            let mins = totalMinutes % 60;
 
-let minutes=h*60;
+            document.getElementById("result").innerHTML =
+                "Total Time: " + hrs + " hours " + mins + " minutes";
+        }
+    </script>
 
-document.getElementById("result").innerHTML=
-minutes+" Minutes";
+    <hr>
 
-}
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Time Calculator?</h2>
+    <p>
+        A time calculator is a tool used to calculate and convert time values such as hours and minutes. It helps you easily manage and understand time durations.
+    </p>
 
-</script>
+    <h2>How Does Time Calculation Work?</h2>
+    <p>
+        The calculator converts hours into minutes and adds extra minutes to give a total time. It then converts the result back into hours and minutes format.
+    </p>
+
+    <h2>Why Use Time Calculator?</h2>
+    <ul>
+        <li>Helps in time management</li>
+        <li>Useful for daily tasks and schedules</li>
+        <li>Quick and accurate results</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This time calculator helps you easily convert and calculate time values. It is simple, fast, and useful for everyday use.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
