@@ -1,35 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Profit Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and Loss Calculator</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>Profit Calculator</h1>
+    <h1>Profit and Loss Calculator</h1>
 
-<input id="cost" placeholder="Cost Price"><br><br>
-<input id="sell" placeholder="Selling Price"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="cost" placeholder="Cost Price (₹)"><br><br>
+        <input type="number" id="sell" placeholder="Selling Price (₹)"><br><br>
 
-<button onclick="calc()">Calculate</button>
+        <button onclick="calculateProfit()">Calculate</button>
 
-<h2 id="result"></h2>
+        <h3 id="result"></h3>
+    </div>
 
-<script>
+    <script>
+        function calculateProfit() {
+            let cost = document.getElementById("cost").value;
+            let sell = document.getElementById("sell").value;
 
-function calc(){
+            let profit = sell - cost;
+            let loss = cost - sell;
 
-let cost=document.getElementById("cost").value;
-let sell=document.getElementById("sell").value;
+            if (sell > cost) {
+                let percent = (profit / cost) * 100;
+                document.getElementById("result").innerHTML =
+                    "Profit: ₹" + profit.toFixed(2) +
+                    "<br>Profit %: " + percent.toFixed(2) + "%";
+            } else if (cost > sell) {
+                let percent = (loss / cost) * 100;
+                document.getElementById("result").innerHTML =
+                    "Loss: ₹" + loss.toFixed(2) +
+                    "<br>Loss %: " + percent.toFixed(2) + "%";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "No Profit No Loss";
+            }
+        }
+    </script>
 
-let profit=sell-cost;
+    <hr>
 
-document.getElementById("result").innerHTML=
-"Profit = "+profit;
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Profit and Loss?</h2>
+    <p>
+        Profit and loss are basic financial concepts used to determine whether a business or transaction is gaining or losing money. Profit occurs when the selling price is higher than the cost price, while loss occurs when the cost price is higher than the selling price.
+    </p>
 
-}
+    <h2>How to Calculate Profit and Loss?</h2>
+    <p>
+        Profit = Selling Price − Cost Price
+    </p>
 
-</script>
+    <p>
+        Loss = Cost Price − Selling Price
+    </p>
+
+    <p>
+        Profit % = (Profit ÷ Cost Price) × 100
+    </p>
+
+    <p>
+        Loss % = (Loss ÷ Cost Price) × 100
+    </p>
+
+    <h2>Example</h2>
+    <p>
+        If the cost price of an item is ₹500 and the selling price is ₹600, then profit is ₹100 and profit percentage is 20%.
+    </p>
+
+    <h2>Why Use Profit Calculator?</h2>
+    <ul>
+        <li>Quick and accurate results</li>
+        <li>Useful for business and students</li>
+        <li>Helps in financial decisions</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This profit and loss calculator helps you quickly determine whether you are making a profit or loss and by how much percentage. It is simple and useful for everyday financial calculations.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
