@@ -1,33 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Unit Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7602220925445629"
+     crossorigin="anonymous"></script>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;">
+<body style="font-family: Arial; text-align:center; background:#f4f4f4;">
 
-<h1>KM to Miles Converter</h1>
+    <h1>Unit Converter</h1>
 
-<input id="km" placeholder="Kilometers"><br><br>
+    <!-- CALCULATOR -->
+    <div style="margin:20px;">
+        <input type="number" id="value" placeholder="Enter value"><br><br>
 
-<button onclick="calc()">Convert</button>
+        <select id="type">
+            <option value="km">Meters to Kilometers</option>
+            <option value="cm">Meters to Centimeters</option>
+            <option value="kg">Kilograms to Grams</option>
+            <option value="g">Grams to Kilograms</option>
+        </select><br><br>
 
-<h2 id="result"></h2>
+        <button onclick="convertUnit()">Convert</button>
 
-<script>
+        <h3 id="result"></h3>
+    </div>
 
-function calc(){
+    <script>
+        function convertUnit() {
+            let value = document.getElementById("value").value;
+            let type = document.getElementById("type").value;
 
-let km=document.getElementById("km").value;
+            let result = 0;
 
-let miles=km*0.621;
+            if (type === "km") {
+                result = value / 1000;
+            } else if (type === "cm") {
+                result = value * 100;
+            } else if (type === "kg") {
+                result = value * 1000;
+            } else if (type === "g") {
+                result = value / 1000;
+            }
 
-document.getElementById("result").innerHTML=
-miles+" Miles";
+            document.getElementById("result").innerHTML =
+                "Converted Value: " + result;
+        }
+    </script>
 
-}
+    <hr>
 
-</script>
+    <!-- CONTENT FOR ADSENSE -->
+    <h2>What is Unit Conversion?</h2>
+    <p>
+        Unit conversion is the process of converting a value from one unit to another. It is commonly used in science, mathematics, and daily life calculations.
+    </p>
+
+    <h2>Common Unit Conversions</h2>
+    <ul>
+        <li>Length (meters, kilometers, centimeters)</li>
+        <li>Weight (grams, kilograms)</li>
+        <li>Time (seconds, minutes, hours)</li>
+    </ul>
+
+    <h2>Why Use Unit Converter?</h2>
+    <ul>
+        <li>Quick and accurate conversion</li>
+        <li>Useful for students and professionals</li>
+        <li>Saves time and effort</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>
+        This unit converter helps you easily convert values between different units. It is simple, fast, and useful for everyday calculations.
+    </p>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a>
+    </p>
 
 </body>
 </html>
